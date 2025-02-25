@@ -34,11 +34,14 @@ function validateForm() {
     let email = document.getElementById('email').value;
     let phone = document.getElementById('phone').value;
     let age = document.getElementById('age').value;
+    let gender = document.getElementById('gender').value;
+
 
     if (!emailPattern.test(email)) {
         alert("Veuillez entrer un email valide.");
         isValid = false;
     }
+    
     if (!phonePattern.test(phone)) {
         alert("Veuillez entrer un numéro de téléphone valide.");
         isValid = false;
@@ -53,6 +56,11 @@ function validateForm() {
         isValid = false;
 
     return isValid;
+    }   
+    if(gender === ''){
+        alert("Veuillez choisir votre sexe.");
+        isValid = false;
+    }
 }
 
 function updatePreview() {
@@ -155,7 +163,7 @@ document.getElementById('interests').addEventListener('input', updatePreview);
 document.getElementById('references').addEventListener('input', updatePreview);
 document.getElementById('languages').addEventListener('input', updatePreview);
 document.getElementById('status').addEventListener('input', updatePreview);
-}
+
 
 function downloadPDF() {
     const { jsPDF } = window.jspdf;
